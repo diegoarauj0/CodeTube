@@ -1,0 +1,39 @@
+{
+  "name": "codetube-server",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/diegoarauj0/CodeTube#readme",
+  "bugs": {
+    "url": "https://github.com/diegoarauj0/CodeTube/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegoarauj0/CodeTube.git"
+  },
+  "license": "ISC",
+  "author": "DiegoArauj0",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
+  }
+}
