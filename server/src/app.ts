@@ -6,8 +6,11 @@ import cors from "cors"
 //Middlewares
 import {
   InternalServerErrorHandlerMiddleware,
-  NotFoundErrorHandlerMiddleware
-} from "./middlewares/index"
+  NotFoundErrorHandlerMiddleware,
+  ValidationErrorHandlerMiddleware,
+  APIResponseMiddleware,
+  MongoServerErrorHandlerMiddleware
+} from "Middlewares"
 
 //Router
 import router from "./router"
@@ -22,7 +25,7 @@ export default class App {
 
   constructor() {
     this.express = express()
-    this.main() 
+    this.main()
   }
 
   private async main(): Promise<void> {
@@ -35,6 +38,8 @@ export default class App {
 
   private setupErrorHandler(): void {
     this.express.use(NotFoundErrorHandlerMiddleware)
+    this.express.use(MongoServerErrorHandlerMiddleware)
+    this.express.use(ValidationErrorHandlerMiddleware)
     this.express.use(InternalServerErrorHandlerMiddleware)
   }
 
@@ -43,14 +48,15 @@ export default class App {
   }
 
   private listen(): void {
-    this.express.listen(process.env.PortExpress || 80, (error) => {
+    this.express.listen(process.env.Port_Express || 80, (error) => {
       if (error) { console.error(error); return }
-      console.log(`http server online on port ${process.env.PortExpress || 80}`)
+      console.log(`http server online on port ${process.env.Port_Express || 80}`)
     })
   }
 
   private setupMiddleware(): void {
     this.express.use(cors())
+    this.express.use(APIResponseMiddleware)
     this.express.use(express.json({ strict: true }))
   }
 
