@@ -3,6 +3,9 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 
+//Config
+import connectMongoDB from "./config/connectMongoDB"
+
 //Middlewares
 import {
   InternalServerErrorHandlerMiddleware,
@@ -10,13 +13,10 @@ import {
   ValidationErrorHandlerMiddleware,
   APIResponseMiddleware,
   MongoServerErrorHandlerMiddleware
-} from "Middlewares"
+} from "middlewares/index"
 
 //Router
 import router from "./router"
-
-//Config
-import connectMongoDB from "./config/connectMongoDB"
 
 dotenv.config()
 

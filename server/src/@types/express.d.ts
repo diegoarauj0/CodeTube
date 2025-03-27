@@ -10,7 +10,7 @@ declare namespace Express {
 
   export interface Request {
     session?: {
-      _id?: string
+      _id?: string;
     }
   }
 }

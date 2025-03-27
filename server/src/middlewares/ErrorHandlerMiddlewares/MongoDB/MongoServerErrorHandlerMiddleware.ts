@@ -1,12 +1,13 @@
 //NodeModules
 import { Request, Response, NextFunction } from "express"
+
 //Config
-import listMongoServerError from "config/listMongoServerError"
+import mongoServerErrorMessageConfig from "config/mongoServerErrorMessageConfig"
 
 export default function MongoServerErrorHandlerMiddleware(mongoServerError: any, req: Request, res: Response, next: NextFunction): void {
   if (mongoServerError.name === "MongoServerError") {
-    const mongoServerErrorType = ((listMongoServerError as any)[mongoServerError.code]?.type || listMongoServerError.unknown.type) as string
-    let mongoServerErrorMessage = ((listMongoServerError as any)[mongoServerError.code]?.message || listMongoServerError.unknown.message) as string
+    const mongoServerErrorType = ((mongoServerErrorMessageConfig as any)[mongoServerError.code]?.type || mongoServerErrorMessageConfig.unknown.type) as string
+    let mongoServerErrorMessage = ((mongoServerErrorMessageConfig as any)[mongoServerError.code]?.message || mongoServerErrorMessageConfig.unknown.message) as string
 
     mongoServerErrorMessage = mongoServerErrorMessage.replace(/{{field}}/gi, Object.keys(mongoServerError.keyValue)[0] as string)
     mongoServerErrorMessage = mongoServerErrorMessage.replace(/{{value}}/gi, mongoServerError.keyValue[Object.keys(mongoServerError.keyValue)[0]] as string)

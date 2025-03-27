@@ -11,12 +11,12 @@ export interface IUser extends mongoose.Document {
   email: string;
   createdAt: string;
   updatedAt: string;
-  publicJSON: () => UserPublicJSON;
+  publicJSON: () => IUserPublicJSON;
   comparePassword: (password: string) => Promise<boolean>;
   createJWT: () => string;
 }
 
-export interface UserPublicJSON {
+export interface IUserPublicJSON {
   username: string;
   nickname: string;
   createdAt: string;
@@ -72,7 +72,7 @@ userSchema.path("nickname").validate(function (nickname: string) {
 }, JSON.stringify({ message: "NickName must be alphanumeric", type: "invalidCharacter", alphanumeric: true, ignore:["-", "_"] }))
 
 //Methods
-userSchema.methods.publicJSON = function(this): UserPublicJSON {
+userSchema.methods.publicJSON = function(this): IUserPublicJSON {
   return {
     _id:this._id,
     nickname:this.nickname,

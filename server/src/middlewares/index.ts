@@ -1,18 +1,18 @@
 //Middlewares
 import { APIResponseMiddleware } from "./APIMiddlewares/APIResponseMiddleware"
-import AuthenticationMiddleware from "./AuthMiddlewares/AuthenticationMiddleware"
-import InternalServerErrorHandlerMiddleware from "./ErrorHandlerMiddlewares/InternalServerErrorHandlerMiddleware"
-import NotFoundErrorHandlerMiddleware from "./ErrorHandlerMiddlewares/NotFoundErrorHandlerMiddleware"
-import ValidationErrorHandlerMiddleware from "./ErrorHandlerMiddlewares/MongoDB/ValidationErrorHandlerMiddleware"
-import MongoServerErrorHandlerMiddleware from "./ErrorHandlerMiddlewares/MongoDB/MongoServerErrorHandlerMiddleware"
-import AsyncHandlerMiddleware from "./HandlerMiddlewares/AsyncHandlerMiddleware"
+import AuthenticationMiddleware from "./authMiddlewares/authenticationMiddleware"
+import MongoServerErrorHandlerMiddleware from "./errorHandlerMiddlewares/mongoDB/mongoServerErrorHandlerMiddleware"
+import ValidationErrorHandlerMiddleware from "./errorHandlerMiddlewares/mongoDB/validationErrorHandlerMiddleware"
+import InternalServerErrorHandlerMiddleware from "./errorHandlerMiddlewares/internalServerErrorHandlerMiddleware"
+import NotFoundErrorHandlerMiddleware from "./errorHandlerMiddlewares/notFoundErrorHandlerMiddleware"
+import AsyncHandlerMiddleware from "./handlerMiddlewares/asyncHandlerMiddleware"
 
 export {
   APIResponseMiddleware,
   AuthenticationMiddleware,
+  MongoServerErrorHandlerMiddleware,
+  ValidationErrorHandlerMiddleware,
   InternalServerErrorHandlerMiddleware,
   NotFoundErrorHandlerMiddleware,
-  ValidationErrorHandlerMiddleware,
-  MongoServerErrorHandlerMiddleware,
-  AsyncHandlerMiddleware,
+  AsyncHandlerMiddleware
 }

@@ -1,8 +1,8 @@
 //Controllers
-import LocalAuthController from "./AuthControllers/LocalAuthController"
-import AuthController from "./AuthControllers/AuthController"
+import AuthController from "./authController"
+import LocalAuthController from "./localAuthController"
 
 export {
+  AuthController,
   LocalAuthController,
-  AuthController
 }

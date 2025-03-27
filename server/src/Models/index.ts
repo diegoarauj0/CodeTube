@@ -1,8 +1,7 @@
 //Models
-import { UserModel, IUser, UserPublicJSON } from "./UserModel"
+import { IUser, UserModel } from "./userModel"
 
 export {
-  UserModel,
   IUser,
-  UserPublicJSON,
+  UserModel
 }

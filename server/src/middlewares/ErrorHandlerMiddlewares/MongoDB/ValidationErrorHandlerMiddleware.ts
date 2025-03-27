@@ -1,7 +1,8 @@
 //NodeModules
 import { Request, Response, NextFunction } from "express"
+
 //Middlewares
-import { BadRequestErrorType, IBadRequestError } from "Middlewares/APIMiddlewares/APIResponseMiddleware" 
+import { BadRequestErrorType, IBadRequestError } from "../../APIMiddlewares/APIResponseMiddleware" 
 
 interface ValidatorProperties {
   message: string;

@@ -1,7 +1,8 @@
 //NodeModules
 import { Router } from "express"
+
 //Controllers
-import { LocalAuthController, AuthController } from "Controllers"
+import { LocalAuthController, AuthController } from "controllers/index"
 
 const router = Router()
 

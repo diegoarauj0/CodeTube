@@ -1,11 +1,14 @@
 //NodeModules
 import { Request, Response } from "express"
+
 //Controllers
-import Controller from "../Controller"
-//Middlewares
-import { AsyncHandlerMiddleware } from "Middlewares"
+import Controller from "./controller"
+
 //Models
-import { UserModel } from "Models"
+import { UserModel } from "models"
+
+//Middlewares
+import { AsyncHandlerMiddleware } from "middlewares/index"
 
 export default class LocalAuthController extends Controller {
   protected createRouter(): void {
@@ -14,9 +17,9 @@ export default class LocalAuthController extends Controller {
   }
 
   private async register(req: Request, res: Response): Promise<void> {
-    const username = typeof(req.body.username) === "string"?req.body.username:""
-    const password = typeof(req.body.password) === "string"?req.body.password:""
-    const email = typeof(req.body.email) === "string"?req.body.email:""
+    const username = typeof (req.body.username) === "string" ? req.body.username : ""
+    const password = typeof (req.body.password) === "string" ? req.body.password : ""
+    const email = typeof (req.body.email) === "string" ? req.body.email : ""
 
     const user = new UserModel({ password: password, email: email, username: username })
 
@@ -26,8 +29,8 @@ export default class LocalAuthController extends Controller {
   }
 
   private async login(req: Request, res: Response): Promise<void> {
-    const password = typeof(req.body.password) === "string"?req.body.password:""
-    const email = typeof(req.body.email) === "string"?req.body.email:""
+    const password = typeof (req.body.password) === "string" ? req.body.password : ""
+    const email = typeof (req.body.email) === "string" ? req.body.email : ""
 
     const user = await UserModel.findOne({ email: email })
 

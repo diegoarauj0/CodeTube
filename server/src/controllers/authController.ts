@@ -1,9 +1,11 @@
 //NodeModules
 import { Request, Response } from "express"
+
 //Controllers
-import Controller from "../Controller"
+import Controller from "./controller"
+
 //Middlewares
-import { AuthenticationMiddleware } from "Middlewares"
+import { AuthenticationMiddleware } from "middlewares/index"
 
 export default class AuthController extends Controller {
   protected createRouter(): void {

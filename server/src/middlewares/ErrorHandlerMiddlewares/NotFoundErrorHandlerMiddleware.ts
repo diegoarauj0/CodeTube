@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 //NodeModules
-import { Request, Response, NextFunction } from "express"
+import { Request, Response } from "express"
 
-export default function NotFoundErrorHandlerMiddleware(req: Request, res: Response, next: NextFunction): void {
+export default function NotFoundErrorHandlerMiddleware(req: Request, res: Response): void {
   res.NotFoundError()
 }
